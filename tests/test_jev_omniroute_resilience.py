@@ -130,7 +130,7 @@ class TestJevOmniResilience(unittest.TestCase):
         dec = JevGate.evaluate(prompt)
         self.assertEqual(dec.tier, ModelTier.STRONG_REASONING)
         chain = ModelRouter.get_candidate_chain(dec.tier)
-        self.assertIn("auto/best-reasoning", chain)
+        self.assertIn("in-ai/deepseek-r1", chain)
 
     def test_2_balanced_model_routing(self):
         """General standard task routes to BALANCED."""
@@ -138,7 +138,7 @@ class TestJevOmniResilience(unittest.TestCase):
         dec = JevGate.evaluate(prompt)
         self.assertEqual(dec.tier, ModelTier.BALANCED)
         chain = ModelRouter.get_candidate_chain(dec.tier)
-        self.assertIn("auto/best-coding", chain)
+        self.assertIn("tk/claude-3-5-sonnet", chain)
 
     def test_3_free_model_routing(self):
         """Lightweight format or typo fix routes to FAST."""
@@ -146,7 +146,7 @@ class TestJevOmniResilience(unittest.TestCase):
         dec = JevGate.evaluate(prompt)
         self.assertEqual(dec.tier, ModelTier.FAST)
         chain = ModelRouter.get_candidate_chain(dec.tier)
-        self.assertIn("auto/best-fast", chain)
+        self.assertIn("tk/claude-3-5-sonnet", chain)
 
     def test_4_rate_limit_429_failover(self):
         """When OmniRoute returns HTTP 429, dispatcher fails over to Ollama."""

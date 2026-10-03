@@ -239,7 +239,7 @@ class TestPrimeNodeCrossRepoIntegration(unittest.TestCase):
         decision = JevGate.evaluate(prompt)
         self.assertEqual(decision.tier, ModelTier.STRONG_REASONING)
         candidates = ModelRouter.get_candidate_chain(decision.tier)
-        self.assertIn("auto/best-reasoning", candidates)
+        self.assertIn("in-ai/deepseek-r1", candidates)
         self.assertIn("qwen2.5:0.5b", candidates)
 
     def test_10_canonical_bounty_settlement_gate_pass(self):
