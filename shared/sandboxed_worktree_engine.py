@@ -135,18 +135,23 @@ class SandboxedWorktreeEngine:
         """
         start = time.time()
         try:
+            # CRITICAL SECURITY FIX: Sanitize environment variables to prevent Secret Leakage
+            safe_env = {
+                "PATH": os.environ.get("PATH", "/usr/local/bin:/usr/bin:/bin"),
+                "LANG": os.environ.get("LANG", "en_US.UTF-8"),
+                "HOME": os.environ.get("HOME", "/tmp"),
+                "CI": "true",
+                "ANTI_SANDBOX": "1"
+            }
+            
             proc = subprocess.run(
                 command,
-                shell=True,
+                shell=True, # Note: shell=True is kept for compat with complex test scripts, but env is purged.
                 cwd=str(workspace_dir),
                 capture_output=True,
                 text=True,
                 timeout=timeout_sec,
-                env={
-                    **os.environ,
-                    "CI": "true",
-                    "ANTI_SANDBOX": "1"
-                }
+                env=safe_env
             )
             duration_ms = round((time.time() - start) * 1000, 2)
             passed = 1 if proc.returncode == 0 else 0
