@@ -1,0 +1,33 @@
+[project]
+name = "primenode-anti-agents"
+version = "1.0.0"
+description = "PrimeNode ANTI Swarm Execution Plane, Supervisor Coordinator & Control Gateway"
+authors = [{ name = "PrimeNode Core Team" }]
+requires-python = ">=3.12"
+dependencies = [
+    "cryptography>=42.0.0"
+]
+
+[project.optional-dependencies]
+bounty = [
+    "aider-chat>=0.50.0",
+    "litellm>=1.40.0",
+    "httpx>=0.27.0"
+]
+browser = [
+    "browser-use>=0.1.0",
+    "playwright>=1.45.0",
+    "httpx>=0.27.0"
+]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.5.0"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+

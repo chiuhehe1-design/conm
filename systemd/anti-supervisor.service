@@ -1,0 +1,23 @@
+[Unit]
+Description=ANTI Supervisor Swarm Coordinator (Non-Root Unprivileged)
+After=network.target omniroute.service
+
+[Service]
+Type=simple
+User=antiworker
+Group=antiworker
+WorkingDirectory=/opt/anti-agents
+ExecStart=/usr/bin/python3 /opt/anti-agents/supervisor.py
+Restart=always
+RestartSec=3
+TimeoutStopSec=10
+LimitNOFILE=65536
+LimitNPROC=4096
+TasksMax=4096
+MemoryHigh=1G
+MemoryMax=1.5G
+StandardOutput=append:/var/log/anti-agents/supervisor.log
+StandardError=append:/var/log/anti-agents/supervisor.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=ANTI Periodic Maintenance & DR Verification Timer (Every 6 Hours)
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=6h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

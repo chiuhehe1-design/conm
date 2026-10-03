@@ -1,0 +1,12 @@
+[Unit]
+Description=ANTI Autonomous Disaster Recovery & Maintenance Worker
+After=network.target
+
+[Service]
+Type=oneshot
+User=antiworker
+Group=antiworker
+WorkingDirectory=/opt/anti-agents
+ExecStart=/usr/bin/python3 /opt/anti-agents/tools/run_dr_drill.py
+StandardOutput=append:/var/log/anti-agents/maintenance.log
+StandardError=append:/var/log/anti-agents/maintenance.log

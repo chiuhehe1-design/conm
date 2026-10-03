@@ -1,0 +1,23 @@
+[Unit]
+Description=ANTI Control Gateway (Non-Root Unprivileged with Narrow Sudo Helper)
+After=network.target anti-supervisor.service
+
+[Service]
+Type=simple
+User=antiworker
+Group=antiworker
+WorkingDirectory=/opt/anti-agents/gateway
+ExecStart=/usr/bin/python3 /opt/anti-agents/gateway/control_gateway.py
+Restart=always
+RestartSec=3
+TimeoutStopSec=10
+LimitNOFILE=65536
+LimitNPROC=4096
+TasksMax=4096
+MemoryHigh=1G
+MemoryMax=1.5G
+StandardOutput=append:/var/log/anti-agents/gateway.log
+StandardError=append:/var/log/anti-agents/gateway.log
+
+[Install]
+WantedBy=multi-user.target

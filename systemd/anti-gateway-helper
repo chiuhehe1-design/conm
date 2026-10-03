@@ -1,0 +1,1 @@
+antiworker ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart anti-supervisor.service, /usr/bin/systemctl restart antigravity-bounty-sentinel.service

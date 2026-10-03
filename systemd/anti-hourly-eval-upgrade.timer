@@ -1,0 +1,10 @@
+[Unit]
+Description=ANTI Autonomous Hourly Test, Evaluation & Self-Upgrade Timer (Every Hour)
+
+[Timer]
+OnBootSec=5min
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,23 @@
+[Unit]
+Description=ANTI Autonomous Company OS Engine (24/7 Closed-Loop Discovery, Execution & Self-Improvement)
+After=network.target anti-supervisor.service anti-control-gateway.service
+
+[Service]
+Type=simple
+User=antiworker
+Group=antiworker
+WorkingDirectory=/opt/anti-agents
+ExecStart=/usr/bin/python3 /opt/anti-agents/daemon/autonomous_daemon.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=10
+LimitNOFILE=65536
+LimitNPROC=4096
+TasksMax=4096
+MemoryHigh=1.5G
+MemoryMax=2.5G
+StandardOutput=append:/var/log/anti-agents/autonomous_daemon.log
+StandardError=append:/var/log/anti-agents/autonomous_daemon.log
+
+[Install]
+WantedBy=multi-user.target

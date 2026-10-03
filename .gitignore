@@ -1,0 +1,47 @@
+# Secrets and Credentials
+*.token
+*.key
+*.pem
+*.secret
+*token_hashes.json
+.env
+.env.*
+*credentials*
+*cookies*.json
+*wallets*.json
+
+# Databases and State
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+/data/
+/rfcs/
+backups/
+*.tar.gz
+
+# Python and Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Ephemeral Sandboxes and Worktrees
+worktrees/
+/var/lib/anti-agents/worktrees/
+
+# Runtime Logs
+*.log
+/var/log/anti-agents/
+
+# Operating System and Editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~

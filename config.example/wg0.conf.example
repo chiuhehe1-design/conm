@@ -1,0 +1,15 @@
+[Interface]
+# ANTI VPS Control Plane Gateway
+Address = 10.8.0.1/24
+ListenPort = 51820
+PrivateKey = REPLACE_WITH_SERVER_PRIVATE_KEY
+
+# Peer 1: Owner Mac (Trạm Cứu Hộ / Break-Glass)
+[Peer]
+PublicKey = REPLACE_WITH_OWNER_PUBLIC_KEY
+AllowedIPs = 10.8.0.2/32
+
+# Peer 2: ANTI Worker Runner Mesh
+[Peer]
+PublicKey = REPLACE_WITH_ANTI_RUNNER_PUBLIC_KEY
+AllowedIPs = 10.8.0.3/32

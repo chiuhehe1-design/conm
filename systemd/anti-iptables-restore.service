@@ -1,0 +1,13 @@
+[Unit]
+Description=Restore ANTI iptables rules on boot
+Before=network-pre.target
+Wants=network-pre.target
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/mkdir -p /sys/fs/cgroup/anti/control /sys/fs/cgroup/anti/production /sys/fs/cgroup/anti/coder /sys/fs/cgroup/anti/browser /sys/fs/cgroup/anti/background
+ExecStart=/usr/sbin/iptables-restore /etc/iptables.rules
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

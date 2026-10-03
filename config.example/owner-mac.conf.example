@@ -1,0 +1,12 @@
+[Interface]
+# Owner Machine (Trạm Cứu Hộ / Break-Glass)
+# Generated exclusively on Mac. Private key never leaves Mac.
+PrivateKey = REPLACE_WITH_OWNER_PRIVATE_KEY
+Address = 10.8.0.2/24
+
+[Peer]
+# ANTI VPS Control Plane
+PublicKey = REPLACE_WITH_SERVER_PUBLIC_KEY
+Endpoint = YOUR_VPS_PUBLIC_IP:51820
+AllowedIPs = 10.8.0.0/24
+PersistentKeepalive = 25

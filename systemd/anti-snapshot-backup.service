@@ -1,0 +1,15 @@
+[Unit]
+Description=ANTI Autonomous Company Point-in-Time Database Backup
+After=network.target
+
+[Service]
+Type=oneshot
+User=antiworker
+Group=antiworker
+WorkingDirectory=/opt/anti-agents
+ExecStart=/usr/bin/python3 /opt/anti-agents/tools/snapshot_company_state.py
+StandardOutput=append:/var/log/anti-agents/backup.log
+StandardError=append:/var/log/anti-agents/backup.log
+
+[Install]
+WantedBy=multi-user.target

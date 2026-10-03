@@ -1,0 +1,15 @@
+[Unit]
+Description=ANTI Autonomous Hourly Test, Evaluation & Self-Upgrade Engine
+After=network.target
+
+[Service]
+Type=oneshot
+User=antiworker
+Group=antiworker
+WorkingDirectory=/opt/anti-agents
+ExecStart=/usr/bin/python3 /opt/anti-agents/tools/run_hourly_eval_upgrade.py
+StandardOutput=append:/var/log/anti-agents/hourly_upgrade.log
+StandardError=append:/var/log/anti-agents/hourly_upgrade.log
+
+[Install]
+WantedBy=multi-user.target
