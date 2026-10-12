@@ -3,7 +3,8 @@
 **Target Grant Program:** [Base Builder Grants](https://base.org/grants) (Coinbase / Base Foundation)  
 **Proposed Funding Amount:** $5,000 – $10,000 USDC (on Base)  
 **Recipient Payout Wallet (Base EVM):** `0x24A2151Ec787a2C5c81412A888c3a9d9eEc3beEA`  
-**Open Source Project:** [Base EVM Smart Contract Security Auditor](https://huggingface.co/spaces)  
+**Live Interactive Web Application:** [http://96.9.225.171:7860](http://96.9.225.171:7860)  
+**Open Source Repository:** [chiuhehe1-design/conm (apps/base_evm_auditor)](https://github.com/chiuhehe1-design/conm/tree/main/apps/base_evm_auditor)  
 
 ---
 
